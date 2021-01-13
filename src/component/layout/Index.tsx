@@ -7,6 +7,7 @@ export class Index extends Component<any, any>{
 
     constructor(props: any, state: any) {
         super(props,state);
+        console.log(props.match);
         this.state = {
             test: "测试"
         }

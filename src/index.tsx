@@ -11,6 +11,7 @@ ReactDOM.render(
     <Switch>
         {/* 转发到 App */}
         <Route path="/admin" render={routeProps => <App {...routeProps}/>}/>
+        <Redirect path="/" exact={true} to="/admin" />
         <Redirect to={exceptionRoutes[0].path} />
     </Switch>
   </Router>,
