@@ -10,8 +10,8 @@ ReactDOM.render(
   <Router>
     <Switch>
         {/* 转发到 App */}
-      <Route path="/admin" render={routeProps => <App {...routeProps}/>}/>
-      <Redirect to={exceptionRoutes[0].path} />
+        <Route path="/admin" render={routeProps => <App {...routeProps}/>}/>
+        <Redirect to={exceptionRoutes[0].path} />
     </Switch>
   </Router>,
   document.getElementById('root')

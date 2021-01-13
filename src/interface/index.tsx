@@ -18,5 +18,16 @@ export interface ILoginState{
     rememberme: boolean,
     username: string,
     password: string,
-    modified: boolean
+    modified: boolean,
+    tooltip: string
+}
+
+/* 注册 */
+export interface IRegistryState{
+    prefixSelector: any,
+    websiteReg: string[],
+    websiteOptions: string[],
+    emailReg: string[],
+    emailOptions: string[],
+    params: any
 }

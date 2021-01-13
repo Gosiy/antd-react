@@ -2,3 +2,46 @@
 
 /* body 背景颜色 */
 @body: #F2F2F2;
+/* body 大小 */
+@bodySize: 100% 100%;
+
+/* root占用大小  暂时只有登录注册使用*/
+@rootHeight: 100%;
+
+/* particles */
+@particles: particles-style;
+.@{particles} {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: .5;
+}
+
+/* card 父div定位  暂时只有登录注册使用 */
+@cardParentDiv: card-par-div;
+.@{cardParentDiv}{
+  position: relative;
+  height: 100%;
+}
+
+/* card居右 ，暂时只有登录注册使用 ，且需与 @cardParentDiv一起使用 */
+@card-lor: {
+  width: 25rem;
+  position: absolute;
+  text-align: center;
+  z-index: 2;
+  right: 5rem;
+};
+
+.card-login{
+  @card-lor();
+  top: 15rem;
+}
+
+.card-registry{
+  @card-lor();
+  top: 10rem;
+}
