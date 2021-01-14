@@ -1,5 +1,6 @@
 # antd-react
-练手项目
+
+    create-react-app , typescript, antd 练手项目
 
 # 主要技术栈
     
