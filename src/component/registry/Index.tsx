@@ -207,7 +207,7 @@ export class Registry extends Component<any, any>{
             >
               <div>
                 <Checkbox>
-                  我同意<a href="#">相关协议</a>
+                  我同意<Link to="#">相关协议</Link>
                 </Checkbox>
                 <Link style={{float: "right"}} to="/admin/login">立即登录</Link>
               </div>

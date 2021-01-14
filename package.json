@@ -17,10 +17,12 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "start": "set NODE_ENV=development && react-app-rewired start",
+    "build": "set NODE_ENV=development && cross-env react-app-rewired build",
+    "build-production": "cross-env GENERATE_SOURCEMAP=false react-app-rewired build",
+    "build:view": "cross-env GENERATE_SOURCEMAP=false ANALYZER=true react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -44,12 +46,15 @@
     "@types/react-router-dom": "^5.1.7",
     "antd": "^4.10.1",
     "babel-plugin-import": "^1.13.3",
+    "compression-webpack-plugin": "^7.1.2",
     "customize-cra": "^1.0.0",
     "history": "^5.0.0",
     "less": "^4.1.0",
     "less-loader": "^7.2.1",
+    "progress-bar-webpack-plugin": "^2.1.0",
     "react-app-rewired": "^2.1.8",
     "react-particles-js": "^3.4.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "webpack-bundle-analyzer": "^4.3.0"
   }
 }

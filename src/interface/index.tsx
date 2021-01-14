@@ -18,8 +18,7 @@ export interface ILoginState{
     rememberme: boolean,
     username: string,
     password: string,
-    modified: boolean,
-    tooltip: string
+    modified: boolean
 }
 
 /* 注册 */

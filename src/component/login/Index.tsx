@@ -10,18 +10,22 @@ import {Link} from "react-router-dom";
 export class Login extends Component<any, ILoginState>{
     constructor(props: any, state: ILoginState) {
       super(props, state);
+      const username = localStorage.getItem("login-username") || "";
+      const password = localStorage.getItem("login-password") || "";
+      let rememberme = localStorage.getItem("login-rememberme") || false;
+      rememberme = rememberme ? rememberme == "1" ? true : false : false;
       this.state = {
         params: particlesConfig,
-        rememberme: false,
-        username: "",
-        password: "",
-        modified: false,
-        tooltip: "此选项会将账密保存着本地，请谨慎使用，如需删除，取消勾选点击登录，或者清除cookie"
+        rememberme: rememberme,
+        username: username,
+        password: password,
+        modified: false
       }
     }
+
     onFinish = (values: any) => {
       const {rememberme, modified} = this.state;
-      const {username, password} = values;
+      let {username, password} = values
       if(modified){
         if(rememberme){
           localStorage.setItem("login-username",username);
@@ -46,21 +50,8 @@ export class Login extends Component<any, ILoginState>{
       });
     }
 
-    /* 取值 */
-    componentDidMount() {
-      const username = localStorage.getItem("login-username") || "";
-      const password = localStorage.getItem("login-password") || "";
-      let rememberme = localStorage.getItem("login-rememberme") || false;
-      rememberme = rememberme ? rememberme == "1" ? true : false : false;
-      this.setState({
-        username: username,
-        password: password,
-        rememberme: rememberme
-      })
-    }
-
   render() {
-      const {params, username ,password, rememberme,tooltip} = this.state;
+      const {params, username ,password, rememberme} = this.state;
         return (
           <div className="card-par-div">
             <Particles
@@ -105,7 +96,7 @@ export class Login extends Component<any, ILoginState>{
                 <Form.Item noStyle={true}>
                   <Row>
                     <Col span={12} style={{textAlign: "left"}}>
-                      <Tooltip placement="topLeft" title={tooltip}>
+                      <Tooltip placement="topLeft" title={"此选项会将账密保存着本地，请谨慎使用，如需删除，取消勾选点击登录，或者清除cookie"}>
                         <Checkbox
                           name="remember"
                           onChange={this.rememberMeHandle}
